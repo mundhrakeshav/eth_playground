@@ -9,13 +9,9 @@ contract ContractTest is Test {
     }
 
     function testExample() public {
-        address x;
-        uint y;
-
-        assembly {
-            sstore(0x03, 43)
-            x:=and(0xffffffffffffffffffffffffffffffffffffffff, sload(0x03))
-        }
-        emit log_address(x);
+        uint128 x = 0x12;
+        uint y = 0x12;
+        emit log_bytes(abi.encodePacked(x));
+        emit log_bytes(abi.encodePacked(y<<128));
     }
 }
